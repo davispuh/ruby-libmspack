@@ -1,6 +1,6 @@
 # Libmspack
 
-This is Ruby wrapper for libmspack library.
+This is Ruby wrapper for [libmspack](http://www.cabextract.org.uk/libmspack/) library.
 
 Compressing and decompressing some loosely related Microsoft compression formats, CAB, CHM, HLP, LIT, KWAJ and SZDD.
 
@@ -56,6 +56,9 @@ It means you can copy, modify, distribute and include in your own work/code, eve
 
 [About Unlicense](http://unlicense.org/)
  
+### BUT
+
+libmspack library itself is licensed with the [GNU LGPL](http://www.gnu.org/licenses/lgpl.txt)
  
 ## Contributing
 
