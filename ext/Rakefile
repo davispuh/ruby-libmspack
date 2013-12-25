@@ -1,0 +1,16 @@
+require 'ffi-compiler/compile_task'
+
+FFI::Compiler::CompileTask.new('libmspack') do |compiler|
+    compiler.source_dir = './libmspack/mspack/'
+    compiler.add_include_path(compiler.source_dir)
+    compiler.add_define('_FILE_OFFSET_BITS', 64) # off_t must be 64-bit
+    compiler.have_header?('ctype.h')
+    compiler.have_header?('limits.h')
+    compiler.have_header?('stdlib.h')
+    compiler.have_header?('string.h')
+    compiler.have_header?('wctype.h')
+    compiler.have_func?('memcmp')
+    compiler.have_func?('towlower')
+    compiler.have_func?('tolower')
+    compiler.have_func?('fseeko')
+end
