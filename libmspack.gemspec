@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'A library for compressing and decompressing some loosely related Microsoft compression formats, CAB, CHM, HLP, LIT, KWAJ and SZDD.'
   spec.summary       = 'Ruby wrapper for libmspack.'
   spec.homepage      = 'https://github.com/davispuh/ruby-libmspack'
-  spec.license       = 'UNLICENSE'
+  spec.licenses      = ['UNLICENSE', 'LGPL-2']
 
   spec.platform      = Gem::Platform::RUBY
   spec.files         = `git ls-files`.split($/)
