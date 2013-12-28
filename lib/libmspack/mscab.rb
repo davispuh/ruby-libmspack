@@ -139,6 +139,19 @@ module LibMsPack
                 self[:filename]
             end
 
+            # The filename of the file.
+            #
+            # @return [String]
+            def getFilename
+                str = filename.dup
+                if (attribs & Constants::MSCAB_ATTRIB_UTF_NAME) == Constants::MSCAB_ATTRIB_UTF_NAME
+                    str.force_encoding(Encoding::UTF_8)
+                else
+                    str.force_encoding(Encoding::ISO_8859_1)
+                end
+                str
+            end
+
             # The uncompressed length of the file, in bytes.
             #
             # @return [Fixnum]
