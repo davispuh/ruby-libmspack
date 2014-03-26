@@ -20,3 +20,15 @@ task :libmspack do
     SVN::Downloader.download(repo, path)
     File.delete(path + 'mspack/debug.c')
 end
+
+desc 'Compile libmspack source code'
+task :compile do
+    require 'ffi'
+    require 'ffi-compiler/platform'
+    Dir.chdir('./ext/') do
+        `rake`
+        system = FFI::Compiler::Platform.system
+        dir = "#{system.arch}-#{system.os}"
+        Dir["#{dir}/*.o"].each { |file| File.delete(file) }
+    end
+end
