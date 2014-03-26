@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.extensions << 'ext/Rakefile'
 
   spec.add_runtime_dependency 'ffi'
-  spec.add_runtime_dependency 'ffi-compiler'
+  spec.add_runtime_dependency 'ffi-compiler', '> 0.1.3'
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'

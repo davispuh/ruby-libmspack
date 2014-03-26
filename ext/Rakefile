@@ -1,8 +1,8 @@
 require 'ffi-compiler/compile_task'
 
 FFI::Compiler::CompileTask.new('libmspack') do |compiler|
-    compiler.source_dir = './libmspack/mspack/'
-    compiler.add_include_path(compiler.source_dir)
+    compiler.source_dirs = ['./libmspack/mspack/']
+    compiler.add_include_path(compiler.source_dirs.last)
     compiler.add_define('_FILE_OFFSET_BITS', 64) # off_t must be 64-bit
     compiler.have_header?('ctype.h')
     compiler.have_header?('limits.h')
