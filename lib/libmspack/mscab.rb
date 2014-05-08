@@ -43,14 +43,14 @@ module LibMsPack
         # Returns the compression method used by a folder.
         # @param [Fixnum] compType a MsCabdFolder.comp_type value
         # @return [Fixnum] one of MSCAB_COMP_NONE, MSCAB_COMP_MSZIP, MSCAB_COMP_QUANTUM or MSCAB_COMP_LZX
-        def MsCabdCompMethod(compType)
+        def self.MsCabdCompMethod(compType)
             compType & 0x0F
         end
 
         # Returns the compression level used by a folder.
         # @param [Fixnum] compType a MsCabdFolder.comp_type value
         # @return [Fixnum] the compression level. This is only defined by LZX and Quantum compression
-        def MsCabdCompLevel(compType)
+        def self.MsCabdCompLevel(compType)
             ((comp_type) >> 8) & 0x1F
         end
 
@@ -94,14 +94,14 @@ module LibMsPack
             #
             # @return [Fixnum] one of MSCAB_COMP_NONE, MSCAB_COMP_MSZIP, MSCAB_COMP_QUANTUM or MSCAB_COMP_LZX
             def compressionMethod
-                MsCabdCompMethod(comp_type)
+                MsCab::MsCabdCompMethod(comp_type)
             end
 
             # Returns the compression level used by a folder.
             #
             # @return [Fixnum] the compression level. This is only defined by LZX and Quantum compression
             def compressionLevel
-                MsCabdCompLevel(comp_type)
+                MsCab::MsCabdCompLevel(comp_type)
             end
         end
 
