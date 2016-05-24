@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['davispuh@gmail.com']
   spec.description   = 'A library for compressing and decompressing some loosely related Microsoft compression formats, CAB, CHM, HLP, LIT, KWAJ and SZDD.'
   spec.summary       = 'Ruby wrapper for libmspack.'
-  spec.homepage      = 'https://github.com/davispuh/ruby-libmspack'
+  spec.homepage      = 'https://gitlab.com/davispuh/ruby-libmspack'
   spec.licenses      = ['UNLICENSE', 'LGPL-2']
 
   spec.platform      = Gem::Platform::RUBY
@@ -22,12 +22,13 @@ Gem::Specification.new do |spec|
   spec.extensions << 'ext/Rakefile'
 
   spec.add_runtime_dependency 'ffi'
-  spec.add_runtime_dependency 'ffi-compiler', '> 0.1.3'
+  spec.add_runtime_dependency 'ffi-compiler2', '>= 2.0.0'
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'yard'
   spec.add_development_dependency 'simplecov'
-  spec.add_development_dependency 'svn-downloader'
+  spec.add_development_dependency 'rubyzip'
 end
+

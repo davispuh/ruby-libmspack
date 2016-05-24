@@ -24,7 +24,7 @@ Or install it yourself as:
 gems:
 
 * `ffi` (required)
-* `ffi-compiler` (required for compiling libmspack)
+* `ffi-compiler2` (required for compiling libmspack)
 
 ## Usage
 

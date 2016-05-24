@@ -14,11 +14,25 @@ end
 
 desc 'Download libmspack source code'
 task :libmspack do
-    require 'svn/downloader'
-    repo = 'http://svn.code.sf.net/p/libmspack/code/libmspack/trunk/'
-    path = './ext/libmspack/'
-    SVN::Downloader.download(repo, path)
-    File.delete(path + 'mspack/debug.c')
+    require 'zip'
+    ver = '1.5'
+    source = 'https://github.com/kyz/libmspack/archive/v' + ver +'.zip'
+    target = './ext/'
+    archivedir = 'libmspack-' + ver
+    URI.parse(source).open do |tempfile|
+        Zip.on_exists_proc = true
+        Zip::File.open(tempfile.path) do |file|
+            file.each do |entry|
+                path = target + entry.name
+                FileUtils.mkdir_p(File.dirname(path))
+                file.extract(entry, path)
+            end
+        end
+    end
+    FileUtils.rm_rf(target + 'libmspack')
+    FileUtils.mv(target + archivedir + '/libmspack/trunk/', target + 'libmspack')
+    File.delete(target + 'libmspack/mspack/debug.c')
+    FileUtils.rm_rf(target + archivedir)
 end
 
 desc 'Compile libmspack source code'
