@@ -5,22 +5,23 @@ describe LibMsPack do
 
     describe '.MsPackSelfTest' do
         it 'should pass' do
-            LibMsPack.SysSelfTest.should eq(LibMsPack::MSPACK_ERR_OK)
+            expect(LibMsPack.SysSelfTest).to eq(LibMsPack::MSPACK_ERR_OK)
         end
     end
 
     describe '.Version' do
         it 'should return LIBRARY version' do
-            LibMsPack.Version(LibMsPack::MSPACK_VER_LIBRARY).should eq(1)
+            expect(LibMsPack.Version(LibMsPack::MSPACK_VER_LIBRARY)).to eq(1)
         end
 
         it 'should return SYSTEM version' do
-            LibMsPack.Version(LibMsPack::MSPACK_VER_SYSTEM).should eq(1)
+            expect(LibMsPack.Version(LibMsPack::MSPACK_VER_SYSTEM)).to eq(1)
         end
 
         it 'should return MSCHMD version' do
-            LibMsPack.Version(LibMsPack::MSPACK_VER_MSCHMD).should eq(2)
+            expect(LibMsPack.Version(LibMsPack::MSPACK_VER_MSCHMD)).to eq(2)
         end
     end
 
 end
+
