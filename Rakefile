@@ -14,24 +14,16 @@ end
 
 desc 'Download libmspack source code'
 task :libmspack do
-    require 'zip'
-    ver = '1.5'
-    source = 'https://github.com/kyz/libmspack/archive/v' + ver +'.zip'
+    require 'open-uri'
+    version = '0.10.1alpha'
+    source = "https://www.cabextract.org.uk/libmspack/libmspack-#{version}.tar.gz"
     target = './ext/'
-    archivedir = 'libmspack-' + ver
-    URI.parse(source).open do |tempfile|
-        Zip.on_exists_proc = true
-        Zip::File.open(tempfile.path) do |file|
-            file.each do |entry|
-                path = target + entry.name
-                FileUtils.mkdir_p(File.dirname(path))
-                file.extract(entry, path)
-            end
-        end
+    archivedir = 'libmspack-' + version
+    URI(source).open do |tempfile|
+        system('tar', '-C', target, '-xf', tempfile.path)
     end
     FileUtils.rm_rf(target + 'libmspack')
-    FileUtils.mv(target + archivedir + '/libmspack/trunk/', target + 'libmspack')
-    File.delete(target + 'libmspack/mspack/debug.c')
+    FileUtils.mv(target + archivedir, target + 'libmspack')
     FileUtils.rm_rf(target + archivedir)
 end
 
