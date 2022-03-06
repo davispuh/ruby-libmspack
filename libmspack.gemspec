@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
 
   spec.platform      = Gem::Platform::RUBY
   spec.files         = `git ls-files`.split($/)
-  spec.files        += Dir.glob('ext/**/*').reject {|f| %r{libmspack.(doc|examples|test)/}.match?(f) }
+  spec.files        += Dir.glob('ext/**/*').reject {|f| %r{/libmspack/(doc|examples|test)/}.match?(f) }
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
