@@ -15,7 +15,7 @@ require 'libmspack/constants'
 
 module LibMsPack
     extend FFI::Library
-    ffi_lib FFI::Compiler::Loader.find('libmspack')
+    ffi_lib FFI::Compiler::Loader.find('mspack')
 
     include LibMsPack::Constants
     include LibMsPack::MsPack
