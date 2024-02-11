@@ -15,7 +15,7 @@ end
 desc 'Download libmspack source code'
 task :libmspack do
     require 'open-uri'
-    version = '0.10.1alpha'
+    version = '0.11alpha'
     source = "https://www.cabextract.org.uk/libmspack/libmspack-#{version}.tar.gz"
     target = './ext/'
     archivedir = 'libmspack-' + version
